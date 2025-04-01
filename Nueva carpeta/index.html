@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Solicitudes | I&H</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@500;600;700&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@500;600;700&display=swap">
+    
+    
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-container">
+                    <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+                        <path d="M8.5 15H10v-5H7v1.5h1.5zM13.5 12.75L16.25 15H18l-2.25-3L18 9h-1.75l-2.75 3.75V9H12v6h1.5z"/>
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6z"/>
+                        <path d="M16 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="#fff"/>
+                        <path d="M9.55 15.45l-2.1-2.1-1.4 1.4 3.5 3.5 6-6-1.4-1.4z" fill="#fff"/>
+                    </svg>
+                    <h1 class="app-title">Gestión de Solicitudes I&H</h1>
+                </div>
+                <div class="search-container">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <input type="text" id="search-bar" class="search-input" placeholder="Buscar por ID, estado o descripción..." oninput="searchTable()">
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="dashboard-panel fade-in">
+                <div class="panel-header">
+                    <h2 class="panel-title">Registro de Solicitudes</h2>
+                    <div class="panel-actions">
+                        <span id="total-count" class="badge">Cargando...</span>
+                        <button id="chart-button" class="chart-button">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3v17h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M18 17V9M12 17V5M6 17v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            Ver Gráfico
+                        </button>
+                        <a href="https://interrapidisimo.com/" target="_blank" class="track-button">Rastrear</a>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="data-table" id="data-table">
+                        <thead>
+                            <tr>
+                                <!-- Las cabeceras de las columnas se insertarán aquí con JavaScript -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Las filas de datos se insertarán aquí con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <!-- Modal para el gráfico -->
+        <div id="chart-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>Estadísticas de Solicitudes</h3>
+                <p>Distribución de solicitudes por estado</p>
+                <div class="chart-container">
+                    <canvas id="requests-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <footer class="app-footer">
+            <p>© 2025 <a href="#" target="_blank">I&H</a> - Sistema de Gestión de Solicitudes. Versión 1.0.0<hr>Creado por: Daniel Martinez- Operaciones</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+    </body>
+</html>
